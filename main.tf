@@ -38,7 +38,7 @@ data "aws_ami" "ubuntu" {
 */
 resource "aws_instance" "web" {
   ami                    = "amzn2-ami-hvm-2.0.20210219.0-x86_64-gp2"
-  instance_type          = "t2.small"
+  instance_type          = "t2.micro"
   vpc_security_group_ids = [aws_security_group.web-sg.id]
 
   user_data = <<-EOF
