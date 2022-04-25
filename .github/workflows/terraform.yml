@@ -25,7 +25,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Download unzip
-        run: sudo apt install wget curl unzip
+        run: sudo apt install wget curl unzip -y
         
       - name: Hashi
         uses: hashicorp/setup-terraform@v2
