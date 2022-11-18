@@ -1,0 +1,21 @@
+name: GIT commit and push all changed files
+on:
+  push
+  
+env: 
+    CI_COMMIT_MESSAGE: Continuous Integration Build Artifacts
+    CI_COMMIT_AUTHOR: Continuous Integration
+      
+jobs:
+  CommitToBranch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Git clone the repository
+        uses: actions/checkout@v3
+      
+      - name: commit
+        run: |
+          git config --global user.name "${{ env.CI_COMMIT_AUTHOR }}"
+          git config --global user.email "username@users.noreply.github.com"
+          git commit -a -m "${{ env.CI_COMMIT_MESSAGE }}"
+          git push
