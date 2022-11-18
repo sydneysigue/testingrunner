@@ -12,6 +12,9 @@ jobs:
     steps:
       - name: Git clone the repository
         uses: actions/checkout@v3
+        
+      - name: Create file
+        run: touch test.txt && echo 'Random sample text' > test.txt
       
       - name: commit
         run: |
